@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import s from "./style.module.css";
+import s from "./pokemon.module.css";
 import carBackPic from "../../assets/card-back-side.jpg";
 
 const PokemonCard = ({name, img, id, type, values}) => {
