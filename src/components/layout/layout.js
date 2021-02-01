@@ -21,9 +21,10 @@ const Layout = (props) => {
                     <div className={l.title}>
                         <h3>{ props.title }</h3>
                         <span className={l.separator}></span>
+                        {props.ch}
                     </div>
                     <div className={classs}>
-                        <p>{ props.desc }</p>
+                        {props.children}
                     </div>
                 </article>
             </div>
