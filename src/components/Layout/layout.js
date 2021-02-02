@@ -1,8 +1,7 @@
+import cn from 'classnames'
 import l from "./layout.module.css"
 
 const Layout = (props) => {
-
-    const classs = l.desc + ' ' + l.full;
 
     let rootStyle = {};
 
@@ -23,7 +22,7 @@ const Layout = (props) => {
                         <span className={l.separator}></span>
                         {props.ch}
                     </div>
-                    <div className={classs}>
+                    <div className={cn(l.desc, l.full)}>
                         {props.children}
                     </div>
                 </article>
