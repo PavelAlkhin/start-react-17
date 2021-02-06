@@ -1,40 +1,49 @@
-// import { useState } from 'react';
-import cn from 'classnames'
+import cn from 'classnames';
+import {Link} from 'react-router-dom';
 
 import st from './style.module.css'
 
-const Menu = ( { isActMenu, isDeactive, onClickMenu } ) => {
+const MENU = [
+    {
+        title: 'HOME',
+        to: '/',
+    },
+    {
+        title: 'GAME',
+        to: '/game',
+    },
+    {
+        title: 'ABOUT',
+        to: '/about',
+    },
+    {
+        title: 'CONTACT',
+        to: '/contact',
+    },
+]
 
-    const onclickHandle = () => {
-        onClickMenu && onClickMenu();
-    }
+const Menu = ( { isOpen } ) => {
 
-    console.log('======:' + isActMenu)
+    console.log('@@@@: '+isOpen)
+
     return (
-     <div className={cn(st.menuContainer, {[st.active] : isActMenu}, {[st.deactive] : isDeactive})} onClick={onclickHandle}>
+     <div className={cn(st.menuContainer, {
+         [st.active]: isOpen === true,
+         [st.deactive]: isOpen === false
+     })} >
          <div className={st.overlay}/>
-         <div className={st.menuContainer}>
+         {/*<div className={st.menuContainer}>*/}
+         <div>
              <ul>
-                 <li>
-                     <a href="#welcome">
-                         HOME
-                     </a>
-                 </li>
-                 <li>
-                     <a href="#game">
-                         GAME
-                     </a>
-                 </li>
-                 <li>
-                     <a href="#about">
-                         ABOUT
-                     </a>
-                 </li>
-                 <li>
-                     <a href="#contact">
-                         CONTACT
-                     </a>
-                 </li>
+                 {
+                     MENU.map(({title, to}, index)=>(
+                         <li>
+                             <Link to={to}>
+                                 {title}
+                             </Link>
+                         </li>
+                     ))
+                 }
              </ul>
          </div>
      </div>

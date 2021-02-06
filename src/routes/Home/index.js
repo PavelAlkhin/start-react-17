@@ -7,7 +7,7 @@ import bg2 from "../../assets/bg2.jpg"
 import bg3 from "../../assets/bg3.jpg"
 import PokemonCard from "../../components/PockemonCard/pokemoncard";
 import POKEMONS from "../../components/PockemonCard/data.json"
-// import '../../App.css';
+import {useHistory} from 'react-router-dom';
 import './style.module.css';
 
 const title = 'Pokemon game'
@@ -18,8 +18,11 @@ const colorBg3 = 'blue';
 
 const HomePage = ( { gangePageButton } ) => {
 
+    const history = useHistory();
+
     const handClickButton = (page) => {
-        gangePageButton && gangePageButton(page);
+        // gangePageButton && gangePageButton(page);
+        history.push('/game');
     }
 
     return (

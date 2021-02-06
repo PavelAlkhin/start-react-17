@@ -2,28 +2,18 @@ import { useState } from 'react';
 import Menu from '../Menu';
 import NavBar from "../NavBar";
 
-const MenuHeader = () => {
+const MenuHeader = ( { bgActive } ) => {
 
-    const [isActBurg, setActBurg] = useState(false);
-    const [isActMenu, setActMenu] = useState(false);
-    const [isDeactiveMenu, setDeactiveMenu] = useState(true);
+    const [isOpen, setOpen ] = useState(null);
 
     const onClickBurger = () => {
-        setActBurg(!isActBurg);
-        setActMenu(!isActBurg);
-        setDeactiveMenu(isActBurg);
-        console.log('#onClickBurger:' +isActBurg)
-    }
-
-    const onClickMenu = () => {
-        // setActMenu(!isActMenu);
-        // setDeactiveMenu(!isActMenu);
+        setOpen(prevState => !prevState);
     }
 
     return (
         <>
-            <Menu isActMenu={isActMenu} isDeactive={isDeactiveMenu} onClickMenu={onClickMenu}/>
-            <NavBar isActBurg={isActBurg} onClickBurger={onClickBurger}/>
+            <Menu isOpen={isOpen} />
+            <NavBar isOpen={isOpen} bgActive={bgActive} onClickBurger={onClickBurger}/>
         </>
     )
 }

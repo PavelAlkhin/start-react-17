@@ -1,25 +1,46 @@
-import { useState } from 'react';
+import {useRouteMatch, Route, Switch, Redirect} from "react-router-dom";
 import HomePage from "./routes/Home";
 import GamePage from "./routes/Game";
+import MenuHeader from "./components/MenuHeader/menuHeader";
+import Footer from "./components/Footer/footer";
+import cn from 'classnames';
+import AboutPage from "./routes/AboutPage";
+import ContactPage from "./routes/ContactPage";
+import NotFoundPage from "./routes/NotFound";
+import s from './style.module.css';
 
 const App = () => {
 
-    const [page, setPage] = useState('app');
+    const match = useRouteMatch('/');
 
-    const onClickChangePage = (page) => {
-        setPage(page);
-    };
+    return (
+            <Switch>
+                <Route path={"/404"} component={NotFoundPage} />
+                <Route>
+                    <>
+                        <MenuHeader bgActive={!match.isExact} />
+                        <div className={cn(s.wrap, {
+                            [s.isHomePage]: match.isExact
+                        })}>
+                            <Switch>
+                                <Route path="/" exact component={HomePage} />
+                                <Route path="/home" component={HomePage} />
+                                <Route path="/game" component={GamePage} />
+                                <Route path="/about" component={AboutPage} />
+                                <Route path="/contact" component={ContactPage} />
+                                <Route render={()=>(
+                                    <Redirect to={"/404"} />
+                                )} />
 
-    switch (page){
-        case "app":
-            return <HomePage gangePageButton={onClickChangePage} />;
-        case "game":
-            return <GamePage gangePageButton={onClickChangePage} />;
-        default:
-            return <HomePage />;
+                            </Switch>
+                        </div>
+                        <Footer />
+                    </>
 
-    };
+                </Route>
 
+            </Switch>
+    )
 };
 
 export default App;

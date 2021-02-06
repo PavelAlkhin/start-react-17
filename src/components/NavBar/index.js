@@ -2,21 +2,27 @@
 import cn from 'classnames';
 import st from './style.module.css';
 
-const NavBar = ( { isActBurg, onClickBurger } ) => {
+const NavBar = ( { isOpen, bgActive = false, onClickBurger } ) => {
 
     const onclickHandle = () => {
         onClickBurger && onClickBurger()
     }
 
     return (
-        <nav id={st.navbar}>
+        <nav id={st.navbar} className={cn({
+            [st.bgActive] : bgActive
+        })}>
             <div className={st.navWrapper}>
                 <p className={st.brand}>
                     LOGO
                 </p>
-                <a className={cn(st.menuButton, {[st.active] : isActBurg})} href="#/" onClick={onclickHandle} >
+                <div className={cn(st.menuButton, {
+                    [st.active] : isOpen
+                })}
+                     onClick={onclickHandle}
+                >
                     <span  />
-                </a>
+                </div>
             </div>
         </nav>
     )
