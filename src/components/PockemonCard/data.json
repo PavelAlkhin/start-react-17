@@ -1,6 +1,7 @@
 [
   {
     "abilities": ["keen-eye", "tangled-feet", "big-pecks"],
+    "active": false,
     "stats": {
       "hp": 63,
       "attack": 60,
@@ -24,6 +25,7 @@
   },
   {
     "abilities": ["intimidate", "shed-skin", "unnerve"],
+    "active": false,
     "stats": {
       "hp": 60,
       "attack": 95,
@@ -47,6 +49,7 @@
   },
   {
     "abilities": ["static", "lightning-rod"],
+    "active": false,
     "stats": {
       "hp": 35,
       "attack": 55,
@@ -70,6 +73,7 @@
   },
   {
     "abilities": ["overgrow", "chlorophyll"],
+    "active": false,
     "stats": {
       "hp": 45,
       "attack": 49,
@@ -93,6 +97,7 @@
   },
   {
     "abilities": ["blaze", "solar-power"],
+    "active": false,
     "stats": {
       "hp": 39,
       "attack": 52,

@@ -5,8 +5,6 @@ import MenuHeader from "../../components/MenuHeader/menuHeader";
 import bg1 from "../../assets/bg1.jpg"
 import bg2 from "../../assets/bg2.jpg"
 import bg3 from "../../assets/bg3.jpg"
-import PokemonCard from "../../components/PockemonCard/pokemoncard";
-import POKEMONS from "../../components/PockemonCard/data.json"
 import {useHistory} from 'react-router-dom';
 import './style.module.css';
 
@@ -58,11 +56,6 @@ const HomePage = ( { gangePageButton } ) => {
                 id='layoutCont2'
                 useBg='pic'
             >
-                <div className="flex">
-                    {
-                        POKEMONS.map((item) => <PokemonCard key={item.id} name={item.name} img={item.img} id={item.id} type={item.type} values={item.values}/>)
-                    }
-                </div>
 
             </Layout>
             <Layout title={title} desc={desc} urlBg={bg3} colorBg={colorBg3} id='layoutCont3' useBg='pic'

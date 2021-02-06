@@ -22,15 +22,21 @@ const MENU = [
     },
 ]
 
-const Menu = ( { isOpen } ) => {
+const Menu = ( { isOpen , onClickMenu} ) => {
 
+    const onclickHandle = () => {
+        onClickMenu && onClickMenu();
+    }
     console.log('@@@@: '+isOpen)
 
     return (
      <div className={cn(st.menuContainer, {
          [st.active]: isOpen === true,
-         [st.deactive]: isOpen === false
-     })} >
+         [st.deactive]: isOpen === false,
+
+     })}
+          onClick={onclickHandle}
+     >
          <div className={st.overlay}/>
          {/*<div className={st.menuContainer}>*/}
          <div>
