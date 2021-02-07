@@ -9,6 +9,10 @@ import ContactPage from "./routes/ContactPage";
 import NotFoundPage from "./routes/NotFound";
 import s from './style.module.css';
 
+
+
+
+
 const App = () => {
 
     const match = useRouteMatch('/');

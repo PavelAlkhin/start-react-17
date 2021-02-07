@@ -3,13 +3,13 @@ import cn from 'classnames'
 import carBackPic from "../../assets/card-back-side.jpg";
 import s from "./pokemon.module.css";
 
-const PokemonCard = ({id, name, img, type, values, active, onclickPokemon}) => {
+const PokemonCard = ({id, name, img, type, values, isActive, onclickPokemon}) => {
 
     const onClickHandle = () => {
 
         onclickPokemon && onclickPokemon(id);
         console.log("###id:"+ id );
-        console.log("@@@isActive:"+active)
+        console.log("@@@isActive:"+isActive)
 
 
     }
@@ -23,7 +23,7 @@ const PokemonCard = ({id, name, img, type, values, active, onclickPokemon}) => {
     return (
         <div className={s.root} onClick={onClickHandle} >
             <div className={cn(s.pokemonCard, {
-                [s.active] : active
+                [s.active] : isActive
             })} >
                 <div className={s.cardFront}>
                     <div className={`${s.wrap} ${s.front}`}>
